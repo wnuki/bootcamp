@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>testing</module>
+        <module>stream</module>
     </modules>
 
     <dependencies>
