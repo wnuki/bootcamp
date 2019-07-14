@@ -11,6 +11,7 @@
     <modules>
         <module>testing</module>
         <module>stream</module>
+        <module>exception</module>
     </modules>
 
     <dependencies>
