@@ -11,7 +11,8 @@
     <modules>
         <module>testing</module>
         <module>stream</module>
-        <module>com.bootcamp.exception</module>
+        <module>exception</module>
+        <module>good-patterns</module>
     </modules>
 
     <dependencies>
