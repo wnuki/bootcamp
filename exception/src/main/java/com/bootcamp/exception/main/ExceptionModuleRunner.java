@@ -1,7 +1,7 @@
-package exception.main;
+package com.bootcamp.exception.main;
 
-import exception.io.FileReader;
-import exception.io.FileReaderException;
+import com.bootcamp.exception.io.FileReader;
+import com.bootcamp.exception.io.FileReaderException;
 
 public class ExceptionModuleRunner {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package exception.nullpointer;
+package com.bootcamp.exception.nullpointer;
 
 public class User {
     private String name;

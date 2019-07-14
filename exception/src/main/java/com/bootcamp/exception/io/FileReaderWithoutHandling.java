@@ -1,4 +1,4 @@
-package exception.io;
+package com.bootcamp.exception.io;
 
 import java.io.File;
 import java.io.IOException;

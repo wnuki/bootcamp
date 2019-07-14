@@ -1,4 +1,4 @@
-package exception.test;
+package com.bootcamp.exception.test;
 
 public class SecondChallenge {
     public String probablyIWillThrowException(double x, double y) throws Exception {

@@ -1,4 +1,4 @@
-package exception.nullpointer;
+package com.bootcamp.exception.nullpointer;
 
 public class MessageSender {
     public void sendMessageTo(User user, String message) throws MessageNotSentException{
