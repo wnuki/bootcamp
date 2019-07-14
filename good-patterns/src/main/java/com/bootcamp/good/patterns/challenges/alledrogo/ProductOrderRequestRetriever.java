@@ -10,6 +10,6 @@ public class ProductOrderRequestRetriever {
         LocalDateTime orderDate = LocalDateTime.of(2019, 5, 20, 21, 25);
         Product product = new Book("book",
                 new BigDecimal("23,45"), "The book");
-        return new ProductOrderRequest(user, orderDate, product);
+        return new ProductOrderRequest(user, orderDate, product, 1);
     }
 }
