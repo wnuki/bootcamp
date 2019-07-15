@@ -7,12 +7,28 @@
     <artifactId>bootcamp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
-        <module>testing</module>
-        <module>stream</module>
-        <module>exception</module>
-        <module>good-patterns</module>
+        <module>bootcamp-testing</module>
+        <module>bootcamp-stream</module>
+        <module>bootcamp-exception</module>
+        <module>bootcamp-good-patterns</module>
+        <module>bootcamp-spring-intro</module>
+        <module>bootcamp-spring</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
