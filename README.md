@@ -2,7 +2,7 @@
 
 The repository contains activities from Bootcamp Java Developer at Kodilla, part 1.
 
-###The scope of course:
+### The scope of course:
 * Object-oriented programming
 * Good programming practises 
 * Data and collections
