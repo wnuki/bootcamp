@@ -15,6 +15,7 @@
         <module>bootcamp-good-patterns</module>
         <module>bootcamp-spring-intro</module>
         <module>bootcamp-spring</module>
+        <module>bootcamp-patterns</module>
     </modules>
 
     <build>
