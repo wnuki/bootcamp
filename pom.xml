@@ -16,6 +16,7 @@
         <module>bootcamp-spring-intro</module>
         <module>bootcamp-spring</module>
         <module>bootcamp-patterns</module>
+        <module>bootcamp-jdbc</module>
     </modules>
 
     <build>
