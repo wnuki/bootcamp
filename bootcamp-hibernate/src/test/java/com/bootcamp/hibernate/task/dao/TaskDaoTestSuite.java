@@ -1,17 +1,18 @@
 package com.bootcamp.hibernate.task.dao;
 
 import com.bootcamp.hibernate.task.Task;
+import com.bootcamp.hibernate.task.TaskFinancialDetails;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -56,5 +57,23 @@ public class TaskDaoTestSuite {
 
         int id = readTasks.get(0).getId();
         taskDao.deleteById(id);
+    }
+
+    @Test
+    public void testTaskDaoSaveWithFinancialDetails() {
+        //Given
+        Task task = new Task(DESCRIPTION, 30);
+        task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(100), false));
+        System.out.println(task.getTaskFinancialDetails().getPrice());
+
+        //When
+        taskDao.save(task);
+        int id = task.getId();
+
+        //Then
+        assertNotEquals(0, id);
+
+        //CleanUp
+        taskDao.deleteAll();
     }
 }

@@ -1,25 +1,25 @@
 package com.bootcamp.hibernate.tasklist;
 
-import com.sun.istack.internal.NotNull;
+import com.bootcamp.hibernate.task.Task;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class TaskList {
     @Id
-    @NotNull
     @GeneratedValue
-    @Column(unique = true)
     private int id;
-
-    @Column
     private String listName;
-
-    @Column
     private String description;
+    @OneToMany(
+            targetEntity = Task.class,
+            mappedBy = "taskList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private List<Task> tasks = new ArrayList<>();
 
     public TaskList(String listName, String description) {
         this.listName = listName;
@@ -39,5 +39,13 @@ public class TaskList {
 
     public String getDescription() {
         return description;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

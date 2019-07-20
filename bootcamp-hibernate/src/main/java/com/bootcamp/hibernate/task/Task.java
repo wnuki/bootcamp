@@ -1,31 +1,26 @@
 package com.bootcamp.hibernate.task;
 
-import com.sun.istack.internal.NotNull;
-import org.springframework.lang.NonNull;
+import com.bootcamp.hibernate.tasklist.TaskList;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
 public class Task {
     @Id
     @GeneratedValue
-    @NotNull
-    @Column(unique = true)
     private int id;
-
-    @Column
     private String description;
-
-    @Column
-    @NonNull
+    @NotNull
     private Date created;
-
-    @Column
     private int duration;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TASKS_FINANCIALS_ID")
+    private TaskFinancialDetails taskFinancialDetails;
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    private TaskList taskList;
 
     public Task(String description, int duration) {
         this.description = description;
@@ -50,5 +45,21 @@ public class Task {
 
     public int getDuration() {
         return duration;
+    }
+
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
+
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
     }
 }
