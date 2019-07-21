@@ -1,6 +1,6 @@
 package com.bootcamp.hibernate.manytomany.dao;
 
-import com.bootcamp.hibernate.manytomany.Company;
+import com.bootcamp.hibernate.manytomany.Employee;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface CompanyDao extends CrudRepository<Company, Integer> {
+public interface EmployeeDao extends CrudRepository<Employee, Integer> {
     @Query
-    List<Company> findCompanyWithFragmentName(@Param("NAME")String name);
+    List<Employee> findEmployeesWithLastName(@Param("LASTNAME")String lastname);
 }

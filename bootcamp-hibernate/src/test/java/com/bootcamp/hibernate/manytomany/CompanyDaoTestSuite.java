@@ -1,6 +1,7 @@
 package com.bootcamp.hibernate.manytomany;
 
 import com.bootcamp.hibernate.manytomany.dao.CompanyDao;
+import com.bootcamp.hibernate.manytomany.dao.EmployeeDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,11 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany() {
@@ -46,18 +52,21 @@ public class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
+        List<Employee> findWithLastName = employeeDao.findEmployeesWithLastName("Kovalsky");
+        List<Company> findCompanyWithFragmentName = companyDao.findCompanyWithFragmentName("Sof");
+
         //Then
         Assert.assertNotEquals(0, softwareMachineId);
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
+        Assert.assertEquals(1, findWithLastName.size());
+        Assert.assertEquals(1, findCompanyWithFragmentName.size());
 
         //CleanUp
         try {
-            companyDao.deleteById(softwareMachineId);
-            companyDao.deleteById(dataMaestersId);
-            companyDao.deleteById(greyMatterId);
+            companyDao.deleteAll();
+            employeeDao.deleteAll();
         } catch (Exception e) {
-
         }
     }
 }

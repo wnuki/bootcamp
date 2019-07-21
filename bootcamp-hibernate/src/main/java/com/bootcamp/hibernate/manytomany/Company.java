@@ -4,6 +4,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.findCompanyWithFragmentName",
+        query = "SELECT * FROM company WHERE name LIKE CONCAT('%', :NAME , '%')",
+        resultClass = Company.class
+)
+
 @Entity
 public class Company {
     @Id
