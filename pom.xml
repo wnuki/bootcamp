@@ -17,6 +17,7 @@
         <module>bootcamp-spring</module>
         <module>bootcamp-patterns</module>
         <module>bootcamp-jdbc</module>
+        <module>kodilla-testing2</module>
     </modules>
 
     <build>
